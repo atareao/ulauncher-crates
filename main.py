@@ -27,15 +27,23 @@ class KeywordQueryEventListener(EventListener):
         if not searchKeyword:
             return
 
-        url = f"https://crates.io/api/v1/crates?q={searchKeyword}&sort={sort_by}&per_page={searchSize}&page=1"
+        url = "https://crates.io/api/v1/crates"
+        params = {
+            'q': searchKeyword,
+            'sort': sort_by,
+            'per_page': searchSize,
+            'page': 1
+        }
         # logger.debug(url)
 
-        response = requests.get(url, headers={'User-Agent': 'ulauncher-crates'})
+        response = requests.get(
+            url,
+            params=params,
+            headers={'User-Agent': 'ulauncher-crates'}
+        )
         if response is not None and response.status_code != 200:
             return
-
         data = response.json()
-        # logger.debug(data)
 
         items = []
         for crate in data['crates']:
