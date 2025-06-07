@@ -32,6 +32,20 @@
                 "11",
                 "12"
             ]
+        },
+        {
+            "id": "crates_sort_by",
+            "type": "select",
+            "name": "Sort by",
+            "default_value": "downloads",
+            "options": [
+                "alpha",
+                "relevance",
+                "downloads",
+                "recent-downloads",
+                "recent-updates",
+                "new"
+            ]
         }
     ]
 }

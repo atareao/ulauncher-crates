@@ -23,10 +23,11 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         searchKeyword = event.get_argument()
         searchSize = extension.preferences['crates_max_search_result_size']
+        sort_by = extension.prefereces['crates_sort_by']
         if not searchKeyword:
             return
 
-        url = f"https://crates.io/api/v1/crates?search={searchKeyword}&per_page={searchSize}&page=1"
+        url = f"https://crates.io/api/v1/crates?q={searchKeyword}&sort={sort_by}&per_page={searchSize}&page=1"
         # logger.debug(url)
 
         response = requests.get(url, headers={'User-Agent': 'ulauncher-crates'})
