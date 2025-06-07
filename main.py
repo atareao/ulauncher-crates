@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 class CratesExtension(Extension):
 
     def __init__(self):
-        super(NpmjsExtension, self).__init__()
+        super(CratesExtension, self).__init__()
         self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
         self.subscribe(ItemEnterEvent, ItemEnterEventListener())
 
