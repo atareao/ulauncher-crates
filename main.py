@@ -22,7 +22,7 @@ class KeywordQueryEventListener(EventListener):
 
     def on_event(self, event, extension):
         searchKeyword = event.get_argument()
-        searchSize = extension.preferences['npmjs_max_search_result_size']
+        searchSize = extension.preferences['crates_max_search_result_size']
         if not searchKeyword:
             return
 
