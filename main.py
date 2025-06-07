@@ -15,7 +15,7 @@ class CratesExtension(Extension):
     def __init__(self):
         super(CratesExtension, self).__init__()
         self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
-        self.subscribe(ItemEnterEvent, ItemEnterEventListener())
+        # self.subscribe(ItemEnterEvent, ItemEnterEventListener())
 
 
 class KeywordQueryEventListener(EventListener):
@@ -30,6 +30,9 @@ class KeywordQueryEventListener(EventListener):
         # logger.debug(url)
 
         response = requests.get(url, headers={'User-Agent': 'ulauncher-crates'})
+        if response is not None and response.status_code != 200:
+            return
+
         data = response.json()
         # logger.debug(data)
 
