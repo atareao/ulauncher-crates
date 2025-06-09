@@ -23,7 +23,7 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         searchKeyword = event.get_argument()
         searchSize = extension.preferences['crates_max_search_result_size']
-        sort_by = extension.prefereces['crates_sort_by']
+        sort_by = extension.preferences['crates_sort_by']
         if not searchKeyword:
             return
 
